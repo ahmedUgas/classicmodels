@@ -1,0 +1,43 @@
+<ui:composition  template="template/newTemplate.xhtml"
+                 xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title"><title>Edit Employee</title></ui:define>
+    <ui:define name="menuItem">Employee</ui:define>
+    <ui:define name="menuItem2">Edit Employee #{employeeBean.employee.employeeNumber}</ui:define>
+    <ui:define name="content">
+        <h:form class="jNice">
+            <h3>Edit Employee ##{employeeBean.employee.employeeNumber}</h3>
+           <fieldset>
+                <p><h:outputLabel value="First Name:"/>
+                    <h:inputText class="text-long" value="#{employeeBean.employee.firstName}"/></p>
+                <p><h:outputLabel value="Last Name:"/>
+                    <h:inputText class="text-long" value="#{employeeBean.employee.lastName}"/></p>
+                <p><h:outputLabel value="Extension:"/>
+                    <h:inputText class="text-long" value="#{employeeBean.employee.extension}"/></p>
+                <p><h:outputLabel value="E-Mail :"/>
+                    <h:inputText class="text-long" value="#{employeeBean.employee.email}"/></p>
+                <p><h:outputLabel  value="Office Code:"/>
+                    <h:selectOneMenu  id="office_code" value="#{employeeBean.employee.officeCode}" class="text-long">
+                        <f:selectItem itemValue="0" itemLabel="Select Office Branch" />
+                        <f:selectItems value="#{employeeBean.offices}" var="office" 
+                                       itemLabel="#{office.city}" itemValue="#{office.officeCode}" />
+                        <f:ajax execute="office_code" render="reports_to"/>
+                    </h:selectOneMenu>
+                </p>
+                <p><h:outputLabel  value="Choose Supervisor:"/>
+                    <h:selectOneMenu id="reports_to" value="#{employeeBean.employee.reportsTo}" class="text-long" required="true">
+                        <f:selectItem itemValue="0" itemLabel="Select Supervisor:" />
+                        <f:selectItems value="#{employeeBean.employeesByOffice}" var="employee" 
+                                       itemLabel="#{employee.firstName } #{employee.lastName}" 
+                                       itemValue="#{employee.employeeNumber}"/>
+                    </h:selectOneMenu>
+                </p>
+                <p><h:outputLabel value="Job Title :"/>
+                    <h:inputText class="text-long" value="#{employeeBean.employee.jobTitle}"/></p>
+               <p><h:commandButton value="Save" action="#{employeeBean.edit}"/> </p>
+            </fieldset>
+        </h:form>
+    </ui:define>
+</ui:composition>

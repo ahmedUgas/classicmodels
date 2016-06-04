@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--<h:outputStylesheet name="/template/style/css/transdmin.css" />-->
+        <link href="./template/style/css/transdmin.css" rel="stylesheet" type="text/css"/>
+        <link href="template/style/css/feedbackStyle.css" rel="stylesheet" type="text/css"/>
+
+        <ui:insert name="title">
+            <title>Transdmin Light</title>
+        </ui:insert>
+    </h:head>
+    <h:body>
+        <div id="wrapper" >
+            <ui:insert name="top">
+                <!-- h1 tag stays for the logo, you can use the a tag for linking the index page -->
+                <h1><a href="#"><span>Transdmin Light</span></a></h1>
+
+                <!-- You can name the links with lowercase, they will be transformed to uppercase by CSS, we prefered to name them with uppercase to have the same effect with disabled stylesheet -->
+                <ul id="mainNav">
+                    <li><h:link class="active" value="DASHBOARD" outcome="index"/></li> <!-- Use the "active" class for the active menu item  -->
+                    <li><a href="#">ADMINISTRATION</a></li>
+                    <li><a href="#">DESIGN</a></li>
+                    <li><a href="#">OPTION</a></li>
+                    <li class="logout">
+                        <li> <h:link value="Logout" outcome="login"/></li>
+                    </li>
+                </ul>
+            </ui:insert>
+            <ui:insert name="err_msg"></ui:insert>
+            <div id="containerHolder">
+                <div id="container">
+                    <div id="sidebar">
+                        <ui:insert name="left">
+                            <ul class="sideNav">
+                                <!--<li><a href="#">Exchange</a></li>-->
+                                <!--<li><a href="#" class="active">Print resources</a></li>-->
+                                <!--<li> <h:link value="Training &amp; Support" outcome="training"/></li>-->
+                                <li> <h:link value="Employees" outcome="Employees"/></li>
+                                <li> <h:link value="Offices" outcome="offices"/></li>
+                                <!--<li><a href="#">Events</a></li>-->
+                                <!--<li><h:link value="feedback Page" outcome="feedbackPage"/></li>-->
+
+                            </ul>
+                        </ui:insert>
+                        <!-- // .sideNav -->
+                    </div>    
+                    <!-- // #sidebar -->
+
+                    <!-- h2 stays for breadcrumbs -->
+                    <h2><h:link value="Dashboard" outcome="index"/>
+                        &raquo; <a href="#" class="active">
+                            <ui:insert name="menuItem"></ui:insert></a>
+                        &raquo; <a href="#" class="active">
+                            <ui:insert name="menuItem2"></ui:insert></a>
+                    </h2>
+                    <div id="main">
+                        <ui:insert name="content">
+
+                        </ui:insert>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <ui:insert name="footer">
+                <p id="footer">this is test template.</p>
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

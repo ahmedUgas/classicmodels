@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <!--<link href="css.css" rel="stylesheet" type="text/css"/>-->
+        <link href="template/style/css/feedbackStyle.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <ui:fragment rendered="#{employeeBean.err_msg != ''}">
+            <div class="error" align="center">#{employeeBean.err_msg}</div>
+            #{employeeBean.setErr_msg("")}
+        </ui:fragment>
+<!--        <div class="info" align="center">#{employeeBean.err_msg}</div>
+        <div class="success" align="center">#{employeeBean.err_msg}</div>
+        <div class="warning" align="center">#{employeeBean.err_msg}</div>
+        <div class="error" align="center">#{employeeBean.err_msg}</div>-->
+    </h:body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--<h:outputStylesheet name="/template/style/css/transdmin.css" />-->
+        <link href="./template/style/css/transdmin.css" rel="stylesheet" type="text/css"/>
+        <link href="template/style/css/feedbackStyle.css" rel="stylesheet" type="text/css"/>
+
+        <ui:insert name="title">
+            <title></title>
+        </ui:insert>
+    </h:head>
+    <h:body>
+        <div id="wrapper" >
+            <ui:insert name="top">
+                <!-- h1 tag stays for the logo, you can use the a tag for linking the index page -->
+                <h1><a href="#"><span>Transdmin Light</span></a></h1>
+                <!-- You can name the links with lowercase, they will be transformed to uppercase by CSS, we prefered to name them with uppercase to have the same effect with disabled stylesheet -->
+            </ui:insert>
+            <ui:insert name="err_msg"></ui:insert>
+            <div id="containerHolder">
+                <div id="container">
+
+                    <div id="main">
+                        <ui:insert name="content">
+
+                        </ui:insert>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </h:body>
+</html>
